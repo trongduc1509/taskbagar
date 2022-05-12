@@ -6,7 +6,7 @@ This is a back-end of website that helps employee in company manage their produc
 ### Build With
 This application used frameworks/libraries above:
 * [Node.js](https://nodejs.org/)
-* [expressjs](https://expressjs.com/)
+* [Expressjs](https://expressjs.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
