@@ -2,7 +2,7 @@ var DataTypes = require("sequelize").DataTypes;
 var _Category = require("./Category");
 var _Comment = require("./Comment");
 var _Customer = require("./Customer");
-var _EmployeeInTask = require("./EmployeeInTask");
+var _EmployeeInProject = require("./EmployeeInProject");
 var _File = require("./File");
 var _Label = require("./Label");
 var _LabelsInTask = require("./LabelsInTask");
@@ -17,7 +17,7 @@ function initModels(sequelize) {
   var Category = _Category(sequelize, DataTypes);
   var Comment = _Comment(sequelize, DataTypes);
   var Customer = _Customer(sequelize, DataTypes);
-  var EmployeeInTask = _EmployeeInTask(sequelize, DataTypes);
+  var EmployeeInProject = _EmployeeInProject(sequelize, DataTypes);
   var File = _File(sequelize, DataTypes);
   var Label = _Label(sequelize, DataTypes);
   var LabelsInTask = _LabelsInTask(sequelize, DataTypes);
@@ -34,8 +34,8 @@ function initModels(sequelize) {
   Customer.hasMany(Project, { as: "Projects", foreignKey: "customer_id"});
   LabelsInTask.belongsTo(Label, { as: "label", foreignKey: "label_id"});
   Label.hasMany(LabelsInTask, { as: "LabelsInTasks", foreignKey: "label_id"});
-  EmployeeInTask.belongsTo(Project, { as: "project", foreignKey: "project_id"});
-  Project.hasMany(EmployeeInTask, { as: "EmployeeInTasks", foreignKey: "project_id"});
+  EmployeeInProject.belongsTo(Project, { as: "project", foreignKey: "project_id"});
+  Project.hasMany(EmployeeInProject, { as: "EmployeeInProjects", foreignKey: "project_id"});
   Task.belongsTo(Project, { as: "project", foreignKey: "project_id"});
   Project.hasMany(Task, { as: "Tasks", foreignKey: "project_id"});
   User.belongsTo(Role, { as: "role", foreignKey: "role_id"});
@@ -52,8 +52,8 @@ function initModels(sequelize) {
   Task.hasMany(Users_Task, { as: "Users_Tasks", foreignKey: "task_id"});
   Comment.belongsTo(User, { as: "user", foreignKey: "user_id"});
   User.hasMany(Comment, { as: "Comments", foreignKey: "user_id"});
-  EmployeeInTask.belongsTo(User, { as: "user", foreignKey: "user_id"});
-  User.hasMany(EmployeeInTask, { as: "EmployeeInTasks", foreignKey: "user_id"});
+  EmployeeInProject.belongsTo(User, { as: "user", foreignKey: "user_id"});
+  User.hasMany(EmployeeInProject, { as: "EmployeeInProjects", foreignKey: "user_id"});
   Project.belongsTo(User, { as: "createdby_User", foreignKey: "createdby"});
   User.hasMany(Project, { as: "Projects", foreignKey: "createdby"});
   Task.belongsTo(User, { as: "createdby_User", foreignKey: "createdby"});
@@ -65,7 +65,7 @@ function initModels(sequelize) {
     Category,
     Comment,
     Customer,
-    EmployeeInTask,
+    EmployeeInProject,
     File,
     Label,
     LabelsInTask,
