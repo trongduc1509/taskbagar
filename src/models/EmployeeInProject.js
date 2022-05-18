@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('EmployeeInTask', {
+  return sequelize.define('EmployeeInProject', {
     id: {
       autoIncrement: true,
       autoIncrementIdentity: true,
@@ -26,12 +26,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'EmployeeInTask',
+    tableName: 'EmployeeInProject',
     schema: 'public',
     timestamps: false,
     indexes: [
       {
-        name: "EmployeeInTask_pkey",
+        name: "EmployeeInProject_pkey",
         unique: true,
         fields: [
           { name: "id" },
