@@ -10,7 +10,7 @@ const findProject = async (name) => {
     let projects  = await models.Project.findAll({
     where:{
         name: {
-            [Op.like]: `${name}%`
+            [Op.like]: `%${name}%`
         }
     },
     raw: true});
