@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const  Sequelize  = require("sequelize");
 const initModels = require('./init-models');
 require('dotenv').config();
 const sequelize = new Sequelize(

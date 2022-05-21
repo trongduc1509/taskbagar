@@ -287,3 +287,39 @@ INSERT INTO public."Project"(
 INSERT INTO public."Task"(
 	id, name, project_id, createdby, status_id, starttime, endtime, description)
 	VALUES (1, 'Draw UI/homepage',1, '2', '6', '2022-05-17 17:28:25-07', '2022-06-30 17:28:25-07', 'Draw homepage include following components: header, footer');
+
+INSERT INTO public."Task"(
+	id, name, project_id, createdby, status_id, starttime, endtime, description)
+	VALUES (2, 'Load image products', 2,1, 1, '2022-06-19 17:28:25', '2022-06-27 17:28:25', 'Load data from database');
+
+INSERT INTO public."Task"(
+	id, name, project_id, createdby, status_id, starttime, endtime, description)
+	VALUES (3, 'Create scroll bar', 1,3, 2, '2022-06-19 17:28:25', '2022-06-27 17:28:25', 'import scroll bar lib');
+
+INSERT INTO public."Task"(
+	id, name, project_id, createdby, status_id, starttime, endtime, description)
+	VALUES (4, 'Config security', 3,1, 1, '2022-06-19 17:28:25', '2022-06-27 17:28:25', 'generate secret key and config');	
+
+INSERT INTO public."Comment"(
+	id, user_id, task_id, content)
+	VALUES (1,2, 1, 'LGTM');
+
+INSERT INTO public."Comment"(
+	id, user_id, task_id, content)
+	VALUES (2, 3, 3, 'low performance');
+
+INSERT INTO public."File"(
+	id, name, size, url, task_id)
+	VALUES (1, 'image-ship', 500, 'https://addons-media.operacdn.com/media/CACHE/images/themes/35/36135/1.0-rev1/images/452dc38c-2d59-4eaf-8ab0-aeee95122290/4c067f7ecdd2f83ed965904eaf65bda5.jpg', 1);	
+
+INSERT INTO public."File"(
+	id, name, size, url, task_id)
+	VALUES (1, 'products', 600, 'https://vietradeportal.vn/product-la-gi/imager_24010.jpg', 3);
+
+INSERT INTO public."EmployeeInProject"(
+	id, user_id, project_id)
+	VALUES (1, 1, 1);
+
+INSERT INTO public."EmployeeInProject"(
+	id, user_id, project_id)
+	VALUES (2, 2, 1);
