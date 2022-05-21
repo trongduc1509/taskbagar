@@ -75,6 +75,7 @@ function initModels(sequelize) {
     Task,
     User,
     Users_Task,
+    sequelize
   };
 }
 module.exports = initModels;
