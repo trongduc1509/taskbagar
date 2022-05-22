@@ -6,7 +6,8 @@ const { models } = require('../models');
 passport.use(new LocalStrategy(
     async function (username, password, done) {
         try {
-            const user = models.User.findOne({where: {username}, raw: true});
+            const user = await models.User.findOne({where: {username}, raw: true});
+            console.log(user);
             if (!user) {
                 return done(null, false, { message: "User not exist."});
             }
@@ -21,7 +22,8 @@ passport.use(new LocalStrategy(
 ));
 
 const validPassword = (user, password) => {
-    return bcrypt.compareSync(password, user.password);
+    //return bcrypt.compareSync(password, user.password);
+    return password == user.password;
 };
 
 passport.serializeUser(function (user, done) {

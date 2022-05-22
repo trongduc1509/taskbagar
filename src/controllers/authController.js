@@ -7,14 +7,6 @@ const isAuthenticated = (req, res, next) => {
     next();
 }
 
-const loginPage = (req, res) => {
-    //load login page
-}
-
-const registerPage = (req, res) => {
-    //load register page
-}
-
 const register = async (req, res) => {
     const {
         username,
@@ -37,7 +29,5 @@ const register = async (req, res) => {
 
 module.exports = {
     isAuthenticated,
-    loginPage,
-    registerPage,
     register
 }
