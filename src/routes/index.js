@@ -6,8 +6,10 @@ const roleRouter = require('./roleRouter');
 const categoryRouter = require('./categoryRouter');
 const projectRouter = require('./projectRouter');
 const taskRouter = require('./taskRouter');
+const authRouter = require('../routes/authRouter');
 
 //required routes
+router.use('/auth', authRouter);
 router.use('/users', userRouter);
 router.use('/roles', roleRouter);
 router.use('/categories', categoryRouter);
