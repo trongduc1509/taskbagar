@@ -39,7 +39,7 @@ const getProjectInfo = async (id) => {
       `SELECT T , S
           FROM public."Project" P,public. "Task" T
           INNER JOIN public."Status" S ON S.id=T.status_id  
-          WHERE P.id=1 AND T.project_id=P.id
+          WHERE P.id=${id} AND T.project_id=P.id
            `,
       { type: sequelize.QueryTypes.SELECT }
     );
