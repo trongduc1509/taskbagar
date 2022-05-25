@@ -3,7 +3,16 @@ const { op } = require("sequelize");
 const { models } = require("../models");
 
 const all = () => {
-  return models.Status.findAll({ raw: true });
+  return models.Status.findAll(
+    // { 
+    //   raw: true 
+    // },
+    {
+      order:[
+        ['id', 'ASC'],
+      ]
+    }
+    );
 };
 
 module.exports = {

@@ -36,7 +36,7 @@ const getProjectInfo = async (id) => {
   let projectInfo;
   try {
     projectInfo = await models.sequelize.query(
-      `SELECT T.name, T.id , S
+      `SELECT T.name, T.id,T.createdby, T.starttime,T.endtime,T.description,T.status_id, S.name AS status
           FROM public."Project" P,public. "Task" T
           INNER JOIN public."Status" S ON S.id=T.status_id  
           WHERE P.id=${id} AND T.project_id=P.id
