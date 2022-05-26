@@ -48,9 +48,26 @@ const getProjectInfo = async (id) => {
   }
   return projectInfo;
 };
+const addProject = async(project) =>{
+  console.log(project);
+  try{
+    await models.Project.create({
+      name: project.project_name,
+      customer_id: 1,
+      category_id: 1,
+      createdby: 1,
+      starttime: "2022-05-22 19:10:25-07",
+      endtime:'2022-10-22 19:10:25-07',
+      description: project.project_description
+    });
+  }catch(err){
+    console.log(err);
+  }
+}
 module.exports = {
   all,
   findProject,
   getProjectInfo,
   getProjectByEmployee,
+  addProject
 };
