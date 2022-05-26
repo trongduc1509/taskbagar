@@ -24,7 +24,8 @@ const detailProject = async (req, res)=>{
       res.json(projectInfo);
 }
 const addNewProject = async(req, res)=>{
-  console.log(req);
+  console.log(req.body);
+  services.addProject(req.body);
 }
 module.exports = {
     list,
