@@ -49,17 +49,25 @@ const getProjectInfo = async (id) => {
   return projectInfo;
 };
 const addProject = async(project) =>{
-  console.log(project);
+  
   try{
-    await models.Project.create({
+    const newProject = await models.Project.create({
       name: project.project_name,
       customer_id: 1,
-      category_id: 1,
-      createdby: 1,
+      category_id: project.category,
+      createdby: project.createdBy,
       starttime: "2022-05-22 19:10:25-07",
       endtime:'2022-10-22 19:10:25-07',
       description: project.project_description
     });
+    
+    for(let i=0;i<project.list_employees.length;i++){
+      await models.EmployeeInProject.create({
+        user_id: project.list_employees[i],
+        project_id: newProject.id
+      });
+    }
+    
   }catch(err){
     console.log(err);
   }
