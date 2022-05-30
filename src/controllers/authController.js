@@ -2,9 +2,10 @@ const bcrypt = require("bcrypt");
 const services = require("../services/authService");
 
 const isAuthenticated = (req, res, next) => {
-    if (req.user)
-        res.redirect('/');
-    next();
+    if (req.isAuthenticated())
+        next();
+    else
+        res.redirect('/auth/login');
 }
 
 const register = async (req, res) => {
@@ -29,5 +30,4 @@ const register = async (req, res) => {
 
 module.exports = {
     isAuthenticated,
-    register
 }

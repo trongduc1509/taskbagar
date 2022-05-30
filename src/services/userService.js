@@ -11,7 +11,25 @@ const listManager = async (role_id) =>{
     ,raw: true});
     return managers;
 }
+const checkUserExist = ({username}) => {
+    return models.User.findOne({
+        raw: true,
+        where: {
+            username: username
+        }
+    });
+}
+const createUser = ({username, password, name, role_id}) => {
+    return models.User.create({
+        username,
+        password,
+        name,
+        role_id
+    });
+}
 module.exports = {
     all,
-    listManager
+    listManager,
+    checkUserExist,
+    createUser
 }
