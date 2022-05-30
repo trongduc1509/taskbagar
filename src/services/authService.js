@@ -14,16 +14,6 @@ const findUser = ({username, password}) => {
     });
 }
 
-const createUser = ({username, hashpassword, name, role_id}) => {
-    return models.User.create({
-        username,
-        password: hashpassword,
-        name,
-        role_id
-    });
-}
-
 module.exports = {
     findUser,
-    createUser
 }
