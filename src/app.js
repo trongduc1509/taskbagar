@@ -14,7 +14,11 @@ require('dotenv').config();
 app.use(logger("dev"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+}));
 app.use(cookieParser());
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -24,7 +28,6 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24,
     }
 }));
-
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());

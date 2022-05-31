@@ -6,7 +6,7 @@ const { models } = require('../models');
 passport.use(new LocalStrategy(
     async function (username, password, done) {
         try {
-            const user = await models.User.findOne({where: {username}, raw: true});
+            const user = await models.User.findOne({where: {username, password}, raw: true});
             console.log(user);
             if (!user) {
                 return done(null, false, { message: "User not exist."});

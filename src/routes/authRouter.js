@@ -7,7 +7,10 @@ const controller = require("../controllers/authController");
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err) throw err;
-        if (!user) res.send("No user exists");
+        if (!user) {
+            res.status(401);
+            res.send("No user exists");
+        }
         else {
             req.logIn(user, err => {
                 if (err) {
@@ -23,7 +26,5 @@ router.post('/login', (req, res, next) => {
         }
     })(req, res, next);
 });
-
-router.post('/register', controller.register);
 
 module.exports = router;
