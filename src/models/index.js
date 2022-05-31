@@ -9,7 +9,9 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     dialect: "postgres",
     //default port = 5432, manhduc's port =5000
+
     port: 5432,
+
   }
 );
 
