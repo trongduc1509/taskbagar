@@ -20,7 +20,28 @@ const getTaskInfo =async (id) =>{
     }
     return taskInfo; 
 }
+const addTask = async (task) =>{
+  console.log(task);
+  try {
+    const newTask = await models.Task.create({
+      name:task.name,
+      project_id: task.project_id,
+      createdby:task.createdby,
+      status_id: task.status_id,
+      starttime: task.starttime,
+      endtime:task.endtime,
+      description: task.description
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+const updateTask = async (request)=> {
+  
+}
 module.exports = {
     all,
-    getTaskInfo
+    getTaskInfo,
+    addTask,
+    updateTask
 }

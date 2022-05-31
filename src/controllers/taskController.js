@@ -16,7 +16,7 @@ const addTask = async(req, res) => {
   console.log(task);
   await services.addTask(task);
 }
-const changeTask = (req, res) => {
+const changeTask = async (req, res) => {
   let request = req.body;
   console.log(request);
   await services.addTask(request);
