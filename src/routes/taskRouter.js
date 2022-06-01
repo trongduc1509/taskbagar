@@ -5,7 +5,7 @@ const controller = require('../controllers/taskController');
 
 router.get("/detailTask", controller.detailTask);
 router.get('/', controller.list);
-router.get('/addNewTask',controller.addTask);
-
+router.post('/addNewTask',controller.addTask);
+router.post('/changeTask',controller.changeTask);
 
 module.exports = router;

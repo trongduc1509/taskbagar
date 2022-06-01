@@ -12,11 +12,18 @@ const list = async (req, res) => {
 };
 
 const addTask = async(req, res) => {
-  console.log(req.body);
-  
+  let task = req.body;
+  console.log(task);
+  await services.addTask(task);
+}
+const changeTask = async (req, res) => {
+  let request = req.body;
+  console.log(request);
+  await services.addTask(request);
 }
 module.exports = {
     list,
     detailTask,
-    addTask
+    addTask,
+    changeTask,
 }
