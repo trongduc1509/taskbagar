@@ -43,7 +43,7 @@ const addTask = async (task) =>{
 }
 const updateTask = async (request)=> {
     try {
-      await models.Task.updateTask.update({
+      await models.Task.update({
         status_id: request.status_id
       },{
         where:{id: request.task_id}
