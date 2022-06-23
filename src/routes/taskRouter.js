@@ -7,5 +7,5 @@ router.get("/detailTask", controller.detailTask);
 router.get('/', controller.list);
 router.post('/addNewTask',controller.addTask);
 router.post('/changeTask',controller.changeTask);
-
+router.post('/updateTask',controller.updateTask);
 module.exports = router;

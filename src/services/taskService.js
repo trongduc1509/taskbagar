@@ -21,7 +21,8 @@ const getTaskInfo =async (id) =>{
     return taskInfo; 
 }
 const addTask = async (task) =>{
-  console.log(task);
+  //console.log(task);
+  console.log(task.label[0]);
   try {
     const newTask = await models.Task.create({
       name:task.name,
@@ -32,12 +33,24 @@ const addTask = async (task) =>{
       endtime:task.endtime,
       description: task.description
     });
+    await models.LabelsInTask.create({
+      task_id: newTask.id,
+      label_id: newTask.label[0].id
+    })
   } catch (err) {
     console.log(err);
   }
 }
 const updateTask = async (request)=> {
-  
+    try {
+      await models.Task.update({
+        status_id: request.status_id
+      },{
+        where:{id: request.task_id}
+      })
+    } catch (err) {
+      console.log(err);
+    }
 }
 module.exports = {
     all,
