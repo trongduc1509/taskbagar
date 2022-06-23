@@ -21,9 +21,15 @@ const changeTask = async (req, res) => {
   console.log(request);
   await services.addTask(request);
 }
+const updateTask = async (req, res) => {
+  console.log(req.body);
+  let request = req.body;
+  await services.updateTask(request);
+}
 module.exports = {
     list,
     detailTask,
     addTask,
     changeTask,
+    updateTask
 }

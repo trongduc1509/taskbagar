@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
     dialect: "postgres",
     //default port = 5432, manhduc's port =5000
 
-    port: 5432,
+    port: 5000,
 
   }
 );
