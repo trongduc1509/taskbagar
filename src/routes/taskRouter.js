@@ -8,4 +8,5 @@ router.get('/', controller.list);
 router.post('/addNewTask',controller.addTask);
 router.post('/changeTask',controller.changeTask);
 router.post('/updateTask',controller.updateTask);
+router.delete('/deleteTask',controller.deleteTask);
 module.exports = router;

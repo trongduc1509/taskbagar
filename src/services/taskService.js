@@ -52,9 +52,21 @@ const updateTask = async (request)=> {
       console.log(err);
     }
 }
+const deleteTask = async (request) =>{
+  try {
+    await models.Task.destroy(
+      {
+        where: { id: request.task_id }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+}
 module.exports = {
     all,
     getTaskInfo,
     addTask,
-    updateTask
+    updateTask,
+    deleteTask
 }
