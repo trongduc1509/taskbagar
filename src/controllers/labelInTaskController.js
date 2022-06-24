@@ -6,7 +6,6 @@ const getAllTaskLabels = async (req, res) => {
     } = req.query;
 
     try {
-        console.log(task_id);
         const taskLabels = await services.getLabelsByTaskId({task_id});
         if (taskLabels) {
             res.status(200);

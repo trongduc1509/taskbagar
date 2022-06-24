@@ -46,9 +46,27 @@ const registerNewUser = async (req, res) => {
         res.send(err);
     }
 }
+const getUserInfoByTask = async (req, res) => {
+    const {
+        id
+    } = req.query;
+
+    try {
+        const userInfo = await services.getUserById({id});
+        if (userInfo) {
+            res.status(200);
+            res.send(userInfo);
+        }
+    } catch(err) {
+        res.status(500);
+        console.log(err);
+        res.send(err);
+    }
+}
 module.exports = {
     list,
     listManager,
     listEmployee,
-    registerNewUser
+    registerNewUser,
+    getUserInfoByTask
 }

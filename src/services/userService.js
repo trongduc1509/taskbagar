@@ -27,9 +27,13 @@ const createUser = ({username, password, name, role_id}) => {
         role_id
     });
 }
+const getUserById = ({id}) => {
+    return models.User.findByPk(id);
+}
 module.exports = {
     all,
     listManager,
     checkUserExist,
-    createUser
+    createUser,
+    getUserById
 }
