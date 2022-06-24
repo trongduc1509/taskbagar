@@ -23,6 +23,11 @@ const detailProject = async (req, res)=>{
       let projectInfo = await services.getProjectInfo(id);
       res.json(projectInfo);
 }
+const infoProject = async (req, res) => {
+  let id = req.query.id;
+  let projectInfo = await services.getProjectDetail(id);
+  res.send(projectInfo);
+}
 const addNewProject = async(req, res)=>{
   console.log(req.body);
   services.addProject(req.body);
@@ -32,5 +37,6 @@ module.exports = {
     searchProject,
     detailProject,
     employeeProject,
-    addNewProject
+    addNewProject,
+    infoProject
 }

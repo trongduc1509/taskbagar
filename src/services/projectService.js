@@ -48,6 +48,17 @@ const getProjectInfo = async (id) => {
   }
   return projectInfo;
 };
+const getProjectDetail = async (id) => {
+  return models.Project.findByPk(id, {
+    include: [{
+      model: models.Customer,
+      as: 'customer',
+    }, {
+      model: models.Category,
+      as: 'category',
+    }]
+  });
+};
 const addProject = async(project) =>{
   
   try{
@@ -77,5 +88,6 @@ module.exports = {
   findProject,
   getProjectInfo,
   getProjectByEmployee,
-  addProject
+  addProject,
+  getProjectDetail
 };
