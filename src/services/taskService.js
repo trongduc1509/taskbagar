@@ -35,8 +35,8 @@ const addTask = async (task) =>{
     });
     await models.LabelsInTask.create({
       task_id: newTask.id,
-      label_id: newTask.label[0].id
-    })
+      label_id: task.label[0].id
+    });
   } catch (err) {
     console.log(err);
   }
